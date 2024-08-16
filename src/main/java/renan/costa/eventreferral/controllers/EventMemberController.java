@@ -1,18 +1,13 @@
 package renan.costa.eventreferral.controllers;
 
-import com.mongodb.DuplicateKeyException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import renan.costa.eventreferral.controllers.dto.MemberLeaderboardResponse;
 import renan.costa.eventreferral.controllers.dto.MemberRegistrationRequest;
 import renan.costa.eventreferral.controllers.dto.MemberRegistrationResponse;
-import renan.costa.eventreferral.entities.EventMemberEntity;
 import renan.costa.eventreferral.services.EventMemberService;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/event/members")
