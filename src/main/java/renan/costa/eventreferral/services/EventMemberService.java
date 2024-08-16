@@ -4,13 +4,16 @@ import com.mongodb.DuplicateKeyException;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import renan.costa.eventreferral.controllers.dto.MemberLeaderboardResponse;
 import renan.costa.eventreferral.controllers.dto.MemberRegistrationRequest;
 import renan.costa.eventreferral.controllers.dto.MemberRegistrationResponse;
 import renan.costa.eventreferral.entities.EventMemberEntity;
 import renan.costa.eventreferral.repositories.EventMemberRepository;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EventMemberService {
@@ -21,12 +24,18 @@ public class EventMemberService {
         this.eventMemberRepository = eventMemberRepository;
     }
 
-    public Page<EventMemberEntity> listMembers(Pageable pageable) {
+    public Page<MemberLeaderboardResponse> listMembers(Pageable pageable) {
         Sort sort = Sort.by("points").descending();
 
         Pageable pagingSort = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
 
-        return eventMemberRepository.findAll(pagingSort);
+        Page<EventMemberEntity> eventMemberPage = eventMemberRepository.findAll(pagingSort);
+
+        List<MemberLeaderboardResponse> eventMemberDTOs = eventMemberPage.stream()
+                .map(entity -> new MemberLeaderboardResponse(entity.getName(), entity.getPoints()))
+                .toList();
+
+        return new PageImpl<>(eventMemberDTOs, pagingSort, eventMemberPage.getTotalElements());
     }
 
     public MemberRegistrationResponse addMember(MemberRegistrationRequest registrationRequest) {

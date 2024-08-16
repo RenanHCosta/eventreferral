@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import renan.costa.eventreferral.controllers.dto.MemberLeaderboardResponse;
 import renan.costa.eventreferral.controllers.dto.MemberRegistrationRequest;
 import renan.costa.eventreferral.controllers.dto.MemberRegistrationResponse;
 import renan.costa.eventreferral.entities.EventMemberEntity;
@@ -30,7 +31,7 @@ public class EventMemberController {
     }
 
     @GetMapping
-    public Page<EventMemberEntity> getLeaderboard(Pageable pageable) {
+    public Page<MemberLeaderboardResponse> getLeaderboard(Pageable pageable) {
         return memberService.listMembers(pageable);
     }
 }
