@@ -35,8 +35,8 @@ Quando um usuário se registra usando um código de indicação:
 
 - Tanto o usuário que indicou quanto o novo usuário recebem 1 ponto cada.
 
-## Ponto de extremidade da tabela de classificação
-O ponto de extremidade da tabela de classificação retorna os seguintes dados:
+## Endpoint da tabela de classificação
+O endpoint da tabela de classificação retorna os seguintes dados:
 
 - Nome de usuário
 - Pontos
