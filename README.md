@@ -1,7 +1,7 @@
 
 
 ## Visão geral
-O sistema de indicação de inscrição em eventos permite que os usuários se inscrevam em um evento e recebam um código de indicação. Os usuários ganham pontos para cada nova inscrição feita incluindo um código de indicação. Um endpoint de placar de líderes é fornecido para exibir a classificação de pontos com suporte a paginação.
+O **Event Referral - Sistema de cadastro com indicação** permite que os usuários se inscrevam em um evento e recebam um código de indicação para compartilhar. Os usuários ganham pontos para cada nova inscrição feita com um código de indicação. Um endpoint de placar de líderes é fornecido para exibir a classificação de pontos com suporte a paginação.
 
 ## Tecnologias
 - Spring Boot
@@ -35,8 +35,8 @@ Quando um usuário se registra usando um código de indicação:
 
 - Tanto o usuário que indicou quanto o novo usuário recebem 1 ponto cada.
 
-## Ponto de extremidade da tabela de classificação
-O ponto de extremidade da tabela de classificação retorna os seguintes dados:
+## Endpoint da tabela de classificação
+O endpoint da tabela de classificação retorna os seguintes dados:
 
 - Nome de usuário
 - Pontos
