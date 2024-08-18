@@ -10,6 +10,7 @@ import renan.costa.eventreferral.controllers.dto.MemberRegistrationResponse;
 import renan.costa.eventreferral.services.EventMemberService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/event/members")
 public class EventMemberController {
     private final EventMemberService memberService;
